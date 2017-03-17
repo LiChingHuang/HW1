@@ -7,6 +7,20 @@ namespace Homework1.Models
 			return new EFUnitOfWork();
 		}		
 		
+		public static ListViewRepository GetListViewRepository()
+		{
+			var repository = new ListViewRepository();
+			repository.UnitOfWork = GetUnitOfWork();
+			return repository;
+		}
+
+		public static ListViewRepository GetListViewRepository(IUnitOfWork unitOfWork)
+		{
+			var repository = new ListViewRepository();
+			repository.UnitOfWork = unitOfWork;
+			return repository;
+		}		
+
 		public static sysdiagramsRepository GetsysdiagramsRepository()
 		{
 			var repository = new sysdiagramsRepository();
